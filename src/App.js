@@ -9,7 +9,7 @@ function App() {
     <ChakraProvider theme={theme}>
       <Container maxW="container.xl" padding={4} centerContent>
         <Heading as="h1" size="2xl" marginBottom={6} textAlign="center">
-          Weather Forecast
+          Malaysia Weather Forecast
         </Heading>
         <Weather />
         <ThemeToggleButton />
