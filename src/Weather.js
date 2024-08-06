@@ -1,5 +1,3 @@
-// src/components/Weather.js
-
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { VStack, Select, FormControl, FormLabel, Spinner, Alert, AlertIcon, Grid, GridItem } from '@chakra-ui/react';
