@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import { Box, Heading, Text, VStack, Select, FormControl, FormLabel, Spinner, Alert, AlertIcon, Grid, GridItem } from '@chakra-ui/react';
+import { Box, Heading, Text, VStack, Select, FormControl, FormLabel, Spinner, Alert, AlertIcon, Grid, GridItem, useColorModeValue } from '@chakra-ui/react';
 
 const Weather = () => {
   const [weatherData, setWeatherData] = useState([]);
@@ -34,6 +34,11 @@ const Weather = () => {
     ? weatherData.filter(data => data.location.location_name === selectedLocation)
     : weatherData;
 
+  const boxBg = useColorModeValue('gray.100', 'gray.700');
+  const boxBgFirst = useColorModeValue('teal.100', 'teal.600');
+  const textColorFirst = useColorModeValue('teal.700', 'teal.100');
+  const textColor = useColorModeValue('gray.800', 'gray.100');
+
   if (loading) return <Spinner size="xl" />;
   if (error) return <Alert status="error"><AlertIcon />{error}</Alert>;
 
@@ -58,21 +63,21 @@ const Weather = () => {
               borderRadius="lg"
               overflow="hidden"
               padding={6}
-              bgGradient="linear(to-r, teal.100, teal.300)"
+              bg={boxBgFirst}
               boxShadow="lg"
               mb={8}
             >
-              <Heading as="h2" size="lg" color="teal.700" marginBottom={4}>
-                {filteredWeatherData[0].location.location_name}
+              <Heading as="h2" size="lg" color={textColorFirst} marginBottom={4}>
+                Today: {filteredWeatherData[0].location.location_name}
               </Heading>
-              <Text>Date: {filteredWeatherData[0].date}</Text>
-              <Text>Morning Forecast: {filteredWeatherData[0].morning_forecast}</Text>
-              <Text>Afternoon Forecast: {filteredWeatherData[0].afternoon_forecast}</Text>
-              <Text>Night Forecast: {filteredWeatherData[0].night_forecast}</Text>
-              <Text>Summary: {filteredWeatherData[0].summary_forecast}</Text>
-              <Text>Summary When: {filteredWeatherData[0].summary_when}</Text>
-              <Text>Min Temp: {filteredWeatherData[0].min_temp}°C</Text>
-              <Text>Max Temp: {filteredWeatherData[0].max_temp}°C</Text>
+              <Text color={textColor}>Date: {filteredWeatherData[0].date}</Text>
+              <Text color={textColor}>Morning Forecast: {filteredWeatherData[0].morning_forecast}</Text>
+              <Text color={textColor}>Afternoon Forecast: {filteredWeatherData[0].afternoon_forecast}</Text>
+              <Text color={textColor}>Night Forecast: {filteredWeatherData[0].night_forecast}</Text>
+              <Text color={textColor}>Summary: {filteredWeatherData[0].summary_forecast}</Text>
+              <Text color={textColor}>Summary When: {filteredWeatherData[0].summary_when}</Text>
+              <Text color={textColor}>Min Temp: {filteredWeatherData[0].min_temp}°C</Text>
+              <Text color={textColor}>Max Temp: {filteredWeatherData[0].max_temp}°C</Text>
             </Box>
           </GridItem>
         )}
@@ -85,20 +90,20 @@ const Weather = () => {
                 borderRadius="lg"
                 overflow="hidden"
                 padding={6}
-                bgGradient="linear(to-r, gray.100, gray.300)"
+                bg={boxBg}
                 boxShadow="md"
               >
-                <Heading as="h3" size="md" color="teal.600" marginBottom={4}>
+                <Heading as="h3" size="md" color={textColor} marginBottom={4}>
                   {data.location.location_name}
                 </Heading>
-                <Text>Date: {data.date}</Text>
-                <Text>Morning Forecast: {data.morning_forecast}</Text>
-                <Text>Afternoon Forecast: {data.afternoon_forecast}</Text>
-                <Text>Night Forecast: {data.night_forecast}</Text>
-                <Text>Summary: {data.summary_forecast}</Text>
-                <Text>Summary When: {data.summary_when}</Text>
-                <Text>Min Temp: {data.min_temp}°C</Text>
-                <Text>Max Temp: {data.max_temp}°C</Text>
+                <Text color={textColor}>Date: {data.date}</Text>
+                <Text color={textColor}>Morning Forecast: {data.morning_forecast}</Text>
+                <Text color={textColor}>Afternoon Forecast: {data.afternoon_forecast}</Text>
+                <Text color={textColor}>Night Forecast: {data.night_forecast}</Text>
+                <Text color={textColor}>Summary: {data.summary_forecast}</Text>
+                <Text color={textColor}>Summary When: {data.summary_when}</Text>
+                <Text color={textColor}>Min Temp: {data.min_temp}°C</Text>
+                <Text color={textColor}>Max Temp: {data.max_temp}°C</Text>
               </Box>
             </GridItem>
           ))}
