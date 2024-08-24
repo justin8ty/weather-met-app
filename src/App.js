@@ -1,8 +1,8 @@
-import React from 'react';
-import { ChakraProvider, Container, Heading } from '@chakra-ui/react';
-import Weather from './Weather';
-import ThemeToggleButton from './components/ThemeToggleButton';
-import theme from './theme';
+import React from "react";
+import { ChakraProvider, Container, Heading } from "@chakra-ui/react";
+import Weather from "./Weather";
+import ThemeToggleButton from "./components/ThemeToggleButton";
+import theme from "./theme";
 
 function App() {
   return (
